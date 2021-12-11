@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'graphene_django',
+    # 'graphene_django',
     'users.apps.UsersConfig',
     'blogApp.apps.BlogappConfig',
     'django.contrib.admin',
