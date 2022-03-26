@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Signup</title>
+{% endblock %}
+{% block content %}
+{#<form style="margin-top: 300px;" action="" method="POST">#}
+{#    {% csrf_token %}#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputEmail1">First Name</label>#}
+{#        <input type="text" class="form-control" placeholder="Enter First Name" name="first_name">#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputEmail1">Last Name</label>#}
+{#        <input type="text" class="form-control" placeholder="Enter Last Name" name="last_name">#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputEmail1">Username</label>#}
+{#        <input type="text" class="form-control" placeholder="Enter username" name="username">#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputEmail1">Email</label>#}
+{#        <input type="email" class="form-control" placeholder="Enter Email" name="email">#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputPassword1">Password</label>#}
+{#        <input type="password" class="form-control" placeholder="Password" name="password1">#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="exampleInputPassword1">Confirm Password</label>#}
+{#        <input type="password" class="form-control" placeholder="Confirm Password" name="password2">#}
+{#    </div>#}
+{#    <button style='margin-top:20px' type="submit" class="btn btn-dark">Submit</button>#}
+{#</form>#}
+
+
+    <div class="page-content">
+		<div class="form-v8-content">
+			<div class="form-left">
+				<img src="{% static 'blogApp/images/form-v8.jpg' %}" height="100%" alt="form">
+			</div>
+			<div class="form-right">
+				<div class="tab">
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+					</div>
+{#					<div class="tab-inner">#}
+{#						<button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>#}
+{#					</div>#}
+				</div>
+				<form class="form-detail" action="" method="post">
+                    {% csrf_token %}
+					<div class="tabcontent" id="sign-up">
+                        <div class="form-row">
+							<label class="form-row-inner">First Name</label>
+{#								<input type="text" name="first_name" class="input-text" required>#}
+{#                                <span class="label">First Name</span>#}
+                                <input type="text" class="form-control" placeholder="Enter First Name" name="first_name">
+
+{#		  						<span class="border"></span>#}
+
+						</div>
+                        <div class="form-row">
+							<label class="form-row-inner">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Last Name" name="last_name">
+						</div>
+
+
+						<div class="form-row">
+							<label class="form-row-inner">Username</label>
+                            <input type="text" class="form-control" placeholder="Enter username" name="username">
+						</div>
+
+
+
+						<div class="form-row">
+							<label class="form-row-inner">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email">
+						</div>
+
+
+						<div class="form-row">
+							<label class="form-row-inner">Password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="password1">
+						</div>
+
+
+						<div class="form-row">
+							<label class="form-row-inner">Comfirm Password</label>
+                            <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+						</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Register">
+						</div>
+					</div>
+				</form>
+
+
+
+			</div>
+		</div>
+	</div>
+{% for message in messages %}
+	<h5 style="margin-top: 10px; color:red">{{message}}</h5>
+{% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

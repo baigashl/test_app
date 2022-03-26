@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{#<div class="card">#}
+{#  <img src="{{post.img.url}}" class="card-img-top" alt="...">#}
+{#  <div class="card-body">#}
+{#    <ul class="post-meta" style="list-style-type: none; padding-left: 0px;">#}
+{#      <li><i class="fa fa-tag"></i><a>{{post.category}}</a></li>#}
+{#      <li><i class="fa fa-comment"></i><a>{{ post.comments.all.count }} Comments</a></li>#}
+{#      <li><i class="fa fa-user"></i><a>Post By {{post.author.username}}</a></li>#}
+{#      <li><i class="fa fa-clock-o"></i><a>{{post.post_date | date:'d F'}}</a></li>#}
+{#    </ul>#}
+{#    <a style="text-decoration:none; color:black" href="{% url 'blog-detail' post.slug %}"><h5 class="card-title">{{post.title}}</h5></a>#}
+{#    <p class="card-text">{{post.body | slice:':250' | safe}}...</p>#}
+{#    <a href="{% url 'blog-detail' post.slug %}"><button type="button" class="btn btn-lg btn-dark">Read More</button></a>#}
+{#  </div>#}
+{#</div>#}
+
+<!-- ***** Testimonials Starts ***** -->
+ <br><br><br><br> <br><br><br><br>
+    <section class="section" id="trainers">
+        <div class="container">
+
+            <div class="row">
+                {% for post in posts %}
+{#                <div class="col-lg-4">#}
+{#                    <div class="trainer-item">#}
+{#                            <img src="{{post.img.url}}"  alt="">#}
+{##}
+{#                        <div class="down-content">#}
+{#                            <br><br>#}
+{#                            <a style="text-decoration:none; color:black" href="{% url 'blog-detail' post.slug %}"><h5 class="card-title">{{post.title}}</h5></a>#}
+{#                            <span>{{post.category}}</span>#}
+{#                            <h4>{{ post.comments.all.count }} reviews</h4>#}
+{#                            <a href="{% url 'blog-detail' post.slug %}"><button type="button" class="btn btn-lg btn-dark">Read More</button></a>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <img src="{{post.img.url}}" style="width: 100%; height: 150px"   alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>{{ post.author }}</span>
+                            <h4>Bret D. Bowers</h4>
+                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
+                            <a href="{% url 'blog-detail' post.slug %}"><button type="button" class="btn btn-lg btn-dark">Read More</button></a>
+                        </div>
+                    </div>
+                <br><br>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        <br><br>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+
+
+
+{% endblock %}

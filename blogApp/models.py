@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 from django.db.models.base import Model
 from django.db.models.signals import pre_save
 from blog.utils import unique_slug_generator
+from django.urls import reverse
 
 # Create your models here.
 class PostComment(models.Model):
@@ -40,3 +41,5 @@ def slug_generator(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
 
 pre_save.connect(slug_generator, sender=Post)
+
+
