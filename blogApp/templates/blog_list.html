@@ -46,9 +46,9 @@
                             <img src="{{post.img.url}}" style="width: 100%; height: 150px"   alt="">
                         </div>
                         <div class="down-content">
-                            <span>{{ post.author }}</span>
-                            <h4>Bret D. Bowers</h4>
-                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
+                            <span><h5>{{ post.title }}</h5></span>
+                            <p>{{ post.body }}</p>
+
                             <a href="{% url 'blog-detail' post.slug %}"><button type="button" class="btn btn-lg btn-dark">Read More</button></a>
                         </div>
                     </div>

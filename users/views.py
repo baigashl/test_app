@@ -23,7 +23,7 @@ def register(request):
                 user.save()
                 user = auth.authenticate(username=username, password=password1)
                 auth.login(request, user)
-                return redirect('blog')
+                return redirect('home')
         else:
             messages.info(request, 'Password not matching!')
             return render('.')
@@ -37,7 +37,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('blog')
+            return redirect('home')
         else:
             messages.info(request, 'Invalid Credentials!')
             return redirect('.')

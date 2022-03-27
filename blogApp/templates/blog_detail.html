@@ -3,47 +3,47 @@
 <title>{{post.title_tag}}</title>
 {% endblock %}
 {% block content %}
-<div class="card">
-  <img src="{{post.img.url}}"  alt="...">
-  <div class="card-body">
-    <ul class="post-meta" style="list-style-type: none; padding-left: 0px;">
-      <li><i class="fa fa-tag"></i><a>{{post.category}}</a></li>
-      <li><i class="fa fa-comment"></i><a>{{ post.comments.all.count }} Comments</a></li>
-      <li><i class="fa fa-user"></i><a>Teacher {{post.author.username}}</a></li>
-      <li><i class="fa fa-clock-o"></i><a>{{post.post_date | date:'d F'}}</a></li>
-    </ul>
-    <h5 class="card-title">{{post.title}}</h5>
-    <p class="card-text">{{post.body | safe}}</p>
-  </div>
-</div>
-
-
-
-{% if not request.user.is_authenticated %}
-<div class="alert alert-danger">To comment, first <a href="/login">log in</a> to your account</div>
-{% endif %}
-
-{% if request.user.is_authenticated %}
-  <div class="card">
-    <form action="{% url 'send_comment' post.slug %}" method="POST">
-      {% csrf_token %}
-      <input type="hidden" name="post_id" value="{{ post.id }}">
-      <textarea name="message" cols="120" rows="10"></textarea>
-      <button type="submit" class="btn btn-lg btn-dark">Add Comment</button>
-    </form>
-  </div>
-{% endif %}
-
-<div class="card">
-  {% for comment in post.comments.all %}
-  <div class="alert alert-success">
-    <h4>Commented by <strong>{{ comment.sender.username}}</strong></h4>
-    <p>Comment: <strong>{{ comment.message }}</strong></p>
-  </div>
-  {% empty %}
-    <div class="alert alert-danger">There is no comment</div>
-  {% endfor %}
-</div>
+{#<div class="card">#}
+{#  <img src="{{post.img.url}}"  alt="...">#}
+{#  <div class="card-body">#}
+{#    <ul class="post-meta" style="list-style-type: none; padding-left: 0px;">#}
+{#      <li><i class="fa fa-tag"></i><a>{{post.category}}</a></li>#}
+{#      <li><i class="fa fa-comment"></i><a>{{ post.comments.all.count }} Comments</a></li>#}
+{#      <li><i class="fa fa-user"></i><a>Teacher {{post.author.username}}</a></li>#}
+{#      <li><i class="fa fa-clock-o"></i><a>{{post.post_date | date:'d F'}}</a></li>#}
+{#    </ul>#}
+{#    <h5 class="card-title">{{post.title}}</h5>#}
+{#    <p class="card-text">{{post.body | safe}}</p>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{##}
+{##}
+{#{% if not request.user.is_authenticated %}#}
+{#<div class="alert alert-danger">To comment, first <a href="/login">log in</a> to your account</div>#}
+{#{% endif %}#}
+{##}
+{#{% if request.user.is_authenticated %}#}
+{#  <div class="card">#}
+{#    <form action="{% url 'send_comment' post.slug %}" method="POST">#}
+{#      {% csrf_token %}#}
+{#      <input type="hidden" name="post_id" value="{{ post.id }}">#}
+{#      <textarea name="message" cols="120" rows="10"></textarea>#}
+{#      <button type="submit" class="btn btn-lg btn-dark">Add Comment</button>#}
+{#    </form>#}
+{#  </div>#}
+{#{% endif %}#}
+{##}
+{#<div class="card">#}
+{#  {% for comment in post.comments.all %}#}
+{#  <div class="alert alert-success">#}
+{#    <h4>Commented by <strong>{{ comment.sender.username}}</strong></h4>#}
+{#    <p>Comment: <strong>{{ comment.message }}</strong></p>#}
+{#  </div>#}
+{#  {% empty %}#}
+{#    <div class="alert alert-danger">There is no comment</div>#}
+{#  {% endfor %}#}
+{#</div>#}
 
 
 
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Our <em>Courses</em></h2>
+                        <h2>Our <em>Сhoreographer</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
                         <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                     </div>
@@ -61,11 +61,9 @@
             <div class="row" id="tabs">
               <div class="col-lg-4">
                 <ul>
-                  <li><a href='#tabs-1'><img src="assets/images/tabs-first-icon.png" alt="">Choreographer {{ post.author.username }}</a></li>
-                  <li><a href='#tabs-2'><img src="assets/images/tabs-first-icon.png" alt="">Comments</a></a></li>
-                  <li><a href='#tabs-3'><img src="assets/images/tabs-first-icon.png" alt="">Third Training Class</a></a></li>
-                  <li><a href='#tabs-4'><img src="assets/images/tabs-first-icon.png" alt="">Fourth Training Class</a></a></li>
-                  <div class="main-rounded-button"><a href="#">View All Schedules</a></div>
+                  <li><a href='#tabs-1'><img src="assets/images/tabs-first-icon.png" alt="">Choreographer {{ post.title }}</a></li>
+                  <li><a href='#tabs-2'><img src="assets/images/tabs-first-icon.png" alt="">Comments</a></li>
+{#                  <div class="main-rounded-button"><a href="#">View All Schedules</a></div>#}
                 </ul>
               </div>
               <div class="col-lg-8">
@@ -74,9 +72,9 @@
                     <img src="{{post.img.url}}" alt="First Class">
                     <h4>Choreographer {{ post.author.username }}</h4>
                     <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere.</p>
-                    <div class="main-button">
-                        <a href="#">View Schedule</a>
-                    </div>
+{#                    <div class="main-button">#}
+{#                        <a href="#">View Schedule</a>#}
+{#                    </div>#}
                   </article>
                   <article id='tabs-2'>
                     <img src="{{post.img.url}}" alt="Second Training">
@@ -100,33 +98,24 @@
                               <input type="hidden" name="post_id" value="{{ post.id }}">
                               <textarea name="message" cols="100" rows="10"></textarea>
                                 <div class="main-button">
-                                    <button class="w3-button w3-deep-orange">Deep Orange</button>
+                                    <button class="btn btn-lg btn-dark" style="background: #ed563b">Add Comment</button>
                                 </div>
 
                             </form>
                           </div>
+
+
+
+
+
+
                         {% endif %}
                     {% if not request.user.is_authenticated %}
                     <div class="alert alert-danger">To comment, first <a href="/login">log in</a> to your account</div>
                     {% endif %}
                     </div>
                   </article>
-                  <article id='tabs-3'>
-                    <img src="assets/images/training-image-03.jpg" alt="Third Class">
-                    <h4>Third Training Class</h4>
-                    <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                    <div class="main-button">
-                        <a href="#">View Schedule</a>
-                    </div>
-                  </article>
-                  <article id='tabs-4'>
-                    <img src="assets/images/training-image-04.jpg" alt="Fourth Training">
-                    <h4>Fourth Training Class</h4>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
-                    <div class="main-button">
-                        <a href="#">View Schedule</a>
-                    </div>
-                  </article>
+
                 </section>
               </div>
             </div>

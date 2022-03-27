@@ -55,6 +55,7 @@ class blogdetail(DetailView):
    model = Post
    template_name = 'blog_detail.html'
 
+
    def get_context_data(self, *args, **kwargs):
       cat_list = Categories.objects.all()
       latestpost_list = Post.objects.all().order_by('-post_date')[:5]
@@ -71,3 +72,15 @@ def send_comment(request, slug):
    post = Post.objects.filter(id=post_id).first()
    post.comments.add(post_comment)
    return redirect('.')
+
+
+def schedules(request):
+
+   return render(request, 'schedules.html')
+
+
+def home(request):
+
+   return render(request, 'index.html')
+
+
